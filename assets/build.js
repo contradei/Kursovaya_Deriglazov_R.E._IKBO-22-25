@@ -6,7 +6,7 @@ function checkBuild() {
   const platform = boards[board.value];
   const issues = [];
   if (processors[cpu.value].socket !== platform.socket) issues.push('Сокеты процессора и платы различаются.');
-  if (ram.selectedOptions[0].text !== platform.memory) issues.push('Плата рассчитана на ' + platform.memory + '.');
+  if (ram.value !== platform.memory) issues.push('Плата рассчитана на ' + platform.memory + '.');
   const result = document.querySelector('#result');
   result.classList.toggle('bad', Boolean(issues.length));
   result.textContent = issues.length ? issues.join(' ') : 'Совместимо по двум проверенным параметрам: сокет и поколение памяти совпадают.';
