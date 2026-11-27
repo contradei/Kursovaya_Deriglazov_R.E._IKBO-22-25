@@ -8,9 +8,9 @@
   </head>
   <body class="page-compare">
     <a class="skip" href="#main">К содержанию</a>
-    <header>
-      <div class="bar">
-        <a class="brand" href="index.html">
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__brand" href="index.html">
           <b>▦</b> Атлас ПК</a>
         <nav aria-label="Разделы сайта">
           <a href="index.html">Обзор</a>
@@ -19,6 +19,7 @@
           <a href="build.html">Сборка</a>
           <a href="glossary.html">Словарь</a>
         </nav>
+        <button type="button" class="theme-toggle" aria-pressed="false">Тёмная тема</button>
       </div>
     </header>
     <main id="main">
@@ -32,20 +33,21 @@
         </figure>
       </div>
       <section class="panel">
-        <div class="fields">
-          <label>Первый профиль<select id="first">
+        <form class="filter-form" aria-label="Выбор профилей">
+          <label>Первый профиль<select id="first" name="first">
               <option value="0" selected>Альфа 4</option>
               <option value="1">Альфа 6</option>
               <option value="2">Бета 8</option>
             </select>
           </label>
-          <label>Второй профиль<select id="second">
+          <label>Второй профиль<select id="second" name="second">
               <option value="0">Альфа 4</option>
               <option value="1">Альфа 6</option>
               <option value="2" selected>Бета 8</option>
             </select>
           </label>
-        </div>
+          <button type="reset" class="filter-form__reset">Сбросить</button>
+        </form>
         <table>
           <caption>Характеристики учебных профилей</caption>
           <thead>
@@ -58,10 +60,14 @@
           <tbody></tbody>
         </table>
       </section>
-      <script src="assets/models.js"></script>
     </main>
     <footer>Атлас ПК · Компьютерные комплектующие · <a href="assets/CREDITS.md">Авторы фотографий</a>
     </footer>
-    <script src="assets/compare.js"></script>
+    <script type="module">if (location.protocol !== 'file:') import('./assets/main.js');</script>
+    <script>if (location.protocol === 'file:') {
+        const fallback = document.createElement('script');
+        fallback.src = 'assets/offline.js';
+        document.body.append(fallback);
+      }</script>
   </body>
 </html>

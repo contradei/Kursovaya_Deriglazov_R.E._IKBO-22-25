@@ -1,4 +1,4 @@
-const processors = [
+export const processors = [
   {
     "name": "Альфа 4",
     "socket": "AM4",
